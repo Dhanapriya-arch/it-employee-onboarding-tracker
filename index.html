@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IT Employee Onboarding Tracker</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div><p class="eyebrow">IT OPERATIONS • PORTFOLIO PROJECT</p><h1>Employee Onboarding Tracker</h1>
+<p>Track equipment, accounts, software setup, and onboarding progress.</p></div><button id="exportBtn">Export CSV</button></header>
+<main>
+<div class="notice"><b>Portfolio demo:</b> Uses fictional sample records and saves changes in this browser only. Never enter real employee details or passwords.</div>
+<section class="stats">
+<article><span>Total employees</span><strong id="totalCount">0</strong></article>
+<article><span>Tasks completed</span><strong id="completedCount">0</strong></article>
+<article><span>Tasks pending</span><strong id="pendingCount">0</strong></article>
+<article><span>In progress</span><strong id="progressCount">0</strong></article></section>
+<section class="panel"><h2>Add or update an employee</h2><p>Create a fictional onboarding record and track IT setup tasks.</p>
+<form id="employeeForm"><input type="hidden" id="recordId"><div class="form-grid">
+<label>Employee name<input id="employeeName" required maxlength="70" placeholder="e.g. Alex Morgan"></label>
+<label>Department<select id="department" required><option value="">Choose department</option><option>IT</option><option>Finance</option><option>Human Resources</option><option>Sales</option><option>Operations</option><option>Customer Support</option></select></label>
+<label>Joining date<input id="joiningDate" type="date" required></label>
+<label>Equipment status<select id="equipmentStatus"><option>Pending</option><option>In Progress</option><option>Completed</option></select></label>
+<label>Account setup<select id="accountStatus"><option>Pending</option><option>In Progress</option><option>Completed</option></select></label>
+<label>Software installation<select id="softwareStatus"><option>Pending</option><option>In Progress</option><option>Completed</option></select></label>
+<label>Orientation / documentation<select id="orientationStatus"><option>Pending</option><option>In Progress</option><option>Completed</option></select></label>
+<label>Assigned IT technician<input id="technician" maxlength="70" placeholder="e.g. IT Support Team"></label>
+<label class="wide">Notes (never enter passwords)<textarea id="notes" rows="3" maxlength="400" placeholder="Non-sensitive setup notes"></textarea></label>
+</div><div class="actions"><button class="primary" id="saveBtn" type="submit">Add employee</button><button type="button" id="cancelEditBtn" hidden>Cancel edit</button><button type="reset" id="resetBtn">Clear form</button></div></form></section>
+<section class="panel"><div class="listhead"><div><h2>Onboarding records</h2><p>Search, filter, edit, or remove a record.</p></div>
+<div class="filters"><input id="searchInput" type="search" placeholder="Search name or department" aria-label="Search records">
+<select id="filterStatus" aria-label="Filter by progress"><option value="All">All progress</option><option>Pending</option><option>In Progress</option><option>Completed</option></select></div></div>
+<div id="emptyState" class="empty" hidden><h3>No records found</h3><p>Add an employee or change your search/filter.</p></div>
+<div class="tablewrap"><table><thead><tr><th>Employee</th><th>Department</th><th>Joining date</th><th>Equipment</th><th>Accounts</th><th>Software</th><th>Orientation</th><th>Progress</th><th>Actions</th></tr></thead><tbody id="recordsBody"></tbody></table></div>
+</section><footer>Built for an IT Support portfolio • Front-end demo • No backend or real account provisioning</footer>
+</main><script src="script.js"></script></body></html>
